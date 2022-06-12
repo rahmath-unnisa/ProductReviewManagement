@@ -37,7 +37,7 @@ namespace ProductReviewManagement
             reviewList.Add(new ProductReview() { ProductId = 25, UserId = 18, Rating = 5, Review = "Good", IsLike = true });
             bool check = true;
             Operations operations = new Operations();
-            Console.WriteLine("1.Display Product Review\n2.Get top 3 Records \n 3.Retrive Records with Rating>3 and Product Id=1,4,9 \n4.Retrive Records count \n5.Retrive ProductID and Review\n6.Skip Top 5 Records");
+            Console.WriteLine("1.Display Product Review\n2.Get top 3 Records \n 3.Retrive Records with Rating>3 and Product Id=1,4,9 \n4.Retrive Records count \n5.Retrive ProductID and Review\n6.Skip Top 5 Records\n7.Average");
             while (check)
             {
                 Console.WriteLine("choose an option to execute");
@@ -61,6 +61,9 @@ namespace ProductReviewManagement
                         break;
                     case 6:
                         operations.SkipTop5Records(reviewList);
+                        break;
+                    case 7:
+                        operations.GetAllRecords(reviewList);
                         break;
                 }
             }

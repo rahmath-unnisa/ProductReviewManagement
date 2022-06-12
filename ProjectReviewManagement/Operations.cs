@@ -48,5 +48,13 @@ namespace ProjectReviewManagement
             var result = list.OrderBy(x => x.Rating).Skip(5).ToList();
             Display(result);
         }
+        public void GetAllRecords(List<ProductReview> list)
+        {
+            var result = list.GroupBy(x => x.ProductId).Select(x => new { productId = x.Key, Review = x.Average(t => t.Rating) });
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.productId + " " + item.Review);
+            }
+        }
     }
 }
